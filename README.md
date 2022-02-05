@@ -114,16 +114,17 @@ aws cloudformation create-stack \
 
 Wait until CloudFormation stack is successfully deployed into your account and proceed with the next step.
 
-### Add permissions to Service Catalog launch and SageMaker execution IAM roles
-AWS Service Catalog uses a default [`AmazonSageMakerServiceCatalogProductsLaunchRole` IAM role](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-sc.html) to launch CloudFormation templates with SageMaker projects. This role is automatically created during provisioning of SageMaker Studio if you enable SageMaker Projects for Studio users.
+### 서비스 카탈로그 런치 및 SageMaker 실행 IAM 역할에 권한 추가
+AWS Service Catalog는 기본 [`AmazonSageMakerServiceCatalogProductsLaunchRole` IAM 역할](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-sc.html)을 사용하여 SageMaker 프로젝트와 함께 CloudFormation 템플릿을 시작합니다. 이 역할은 Studio 사용자에 대해 SageMaker 프로젝트를 활성화한 경우 SageMaker Studio를 프로비저닝하는 동안 자동으로 생성됩니다.
 
-To deploy our Feature Store ingestion product as a SageMaker project, this role needs additional permissions. All needed permissions are defined in a [managed policy resource `AmazonSageMakerServiceCatalogFSIngestionProductPolicy`](cfn-templates/sm-project-sc-portfolio.yaml), which we must attach to 
- `AmazonSageMakerServiceCatalogProductsLaunchRole` role before we can start SageMaker project deployment.  
+Feature Store 수집 제품을 SageMaker 프로젝트로 배포하려면 이 역할에 추가 권한이 필요합니다. 필요한 모든 권한은 [관리형 정책 리소스 `AmazonSageMakerServiceCatalogFSIngestionProductPolicy`](cfn-templates/sm-project-sc-portfolio.yaml)에 정의되어 있으며 이를 역할(`AmazonSageMakerServiceCatalogProductsLaunchRole`) 에 첨부해야 합니다.
+이는  SageMaker 프로젝트 배포를 시작하기 전에 해야 합니다.
 
-To run some code cells in the provided notebooks, for example with calls to [CloudFormation API](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Operations.html), the SageMaker execution role needs additional permissions. These permissions are defined in [managed policy resource `AmazonSageMakerExecutionRolePolicy`](cfn-templates/sm-project-sc-portfolio.yaml) and must be attached to the SageMaker execution role.
+예를 들어 [CloudFormation API](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Operations.html)를 호출하여 제공된 노트북에서 일부 코드 셀을 실행하려면 SageMaker 실행 역할에 추가 권한이 필요합니다. 이러한 권한은 [관리형 정책 리소스 `AmazonSageMakerExecutionRolePolicy`](cfn-templates/sm-project-sc-portfolio.yaml)에 정의되어 있으며 SageMaker 실행 역할에 연결되어야 합니다.
 
-Run the following CLI commands to attach the created managed policies to the `AmazonSageMakerServiceCatalogProductsLaunchRole` and SageMaker execution IAM roles:  
-Retrieve the managed policy ARNs and SageMaker execution role name:
+다음 CLI 명령을 실행하여 생성된 관리형 정책을 `AmazonSageMakerServiceCatalogProductsLaunchRole` 및 SageMaker 실행 IAM 역할에 연결합니다.
+관리형 정책 ARN 및 SageMaker 실행 역할 이름을 검색합니다.
+
 ```sh
 export SM_SC_FS_INGESTION_POLICY_ARN=$(aws cloudformation describe-stacks \
     --stack-name $SC_PORTFOLIO_STACK_NAME \
