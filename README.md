@@ -153,9 +153,10 @@ aws iam attach-role-policy \
     --policy-arn $SM_EXECUTION_ROLE_POLICY_ARN
 ```
 
-### Start Studio
-To launch Studio you must go to [SageMaker Dashboard](https://console.aws.amazon.com/sagemaker/home?#/dashboard), click **Open SageMaker Studio** and check that **Status** is `Ready`. 
-Make sure that Amazon SageMaker project templates are enabled for your account and Studio users in **Studio Summary** pane:
+### 스튜디오 시작
+Studio를 시작하려면 [SageMaker Dashboard](https://console.aws.amazon.com/sagemaker/home?#/dashboard)로 이동하여 **Open SageMaker Studio**를 클릭하고 **Status**가 다음인지 확인해야 합니다. '준비'.
+**Studio 요약** 창에서 계정 및 Studio 사용자에 대해 Amazon SageMaker 프로젝트 템플릿이 활성화되어 있는지 확인합니다.
+
 
 ![](img/studio-summary-projects-enabled.png)
 
@@ -167,63 +168,64 @@ and enable the projects in the settings window, click Submit:
 
 ![](img/studio-settings-enable-projects.png)
 
-If you don't have a studio user, click on the **Add user** in the SageMaker Studio Control panel. Otherwise click on **Open Studio**.
+스튜디오 사용자가 없는 경우 SageMaker Studio 제어판에서 **사용자 추가**를 클릭합니다. 그렇지 않으면 **스튜디오 열기**를 클릭합니다.
 
 ![](img/studio-add-user.png)
 
-To add a new studio user, enter the corresponding SageMaker execution role which was created in the step [Create SageMaker Studio](#create-sagemaker-studio) in the Add user panel and click Submit:
+새 스튜디오 사용자를 추가하려면 사용자 추가 패널의 [SageMaker Studio 생성](#create-sagemaker-studio) 단계에서 생성된 해당 SageMaker 실행 역할을 입력하고 제출을 클릭합니다.
 
 ![](img/studio-add-user-panel.png)
 
-After a user profile created, you can click on **Open Studio** link. You will be redirected to a new browser window with Studio IDE.
+사용자 프로필이 생성된 후 **Open Studio** 링크를 클릭할 수 있습니다. Studio IDE가 있는 새 브라우저 창으로 리디렉션됩니다.
 
 ![](img/studio-profile-open-studio.png)
 
-Wait until Studio finishes creation of a default JupyterServer application:
+Studio에서 기본 JupyterServer 애플리케이션 생성을 마칠 때까지 기다립니다.
 
 ![](img/studio-creating-jupyter-server.png)
 
-and you presented with Launcher landing page:
+Launcher 방문 페이지를 제시했습니다.
 
 ![](img/studio-launcher-landing-page.png)
 
-### Clone code repository
-To use the provided notebooks you must clone the source code repository into your Studio environment.
-Open a system terminal in Studio in the **Launcher** window:
+### 코드 리파지토리 복사 하기
+제공된 노트북을 사용하려면 소스 코드 저장소를 Studio 환경에 복제해야 합니다.
+**런처** 창의 Studio에서 시스템 터미널을 엽니다.
 
 ![](img/studio-system-terminal.png)
 
-Run the following command in the terminal:
+터미널에서 다음 명령을 실행합니다.
 ```sh
-git clone https://github.com/aws-samples/amazon-sagemaker-reusable-components.git
+git clone https://github.com/aws-samples/amazon-sagemaker-reusable-components-kr.git
 ```
 
-The code repository will be downloaded and saved in your home directory in Studio.
-Now go to the file browser and open [00-setup](notebooks/00-setup.ipynb) notebook:
+코드 저장소가 다운로드되어 Studio의 홈 디렉토리에 저장됩니다.
+이제 파일 브라우저로 이동하여 [00-setup](notebooks/00-setup.ipynb) 노트북을 엽니다.
 
 ![](img/file-browser-setup.png)
 
-The first start of the notebook kernel on a new KernelGateway app takes about 5 minutes. Continue with further instructions in the notebook after Kernel is ready.
+새 KernelGateway 앱에서 노트북 커널을 처음 시작하는 데는 약 5분이 걸립니다. 커널이 준비된 후 노트북의 추가 지침을 계속 진행합니다.
 
-## Solution walk-through
-Please use the provided [setup](notebooks/00-setup.ipynb) and [feature-store-ingest-pipeline](notebooks/01-feature-store-ingest-pipeline.ipynb) notebooks to run all solution steps.
+## 솔루션 둘러보기
+제공된 [설정](notebooks/00-setup.ipynb) 및 [feature-store-ingest-pipeline](notebooks/01-feature-store-ingest-pipeline.ipynb) 노트북을 사용하여 모든 솔루션 단계를 실행하십시오.
 
-The delivered notebooks take you through the following implementation:
-- [Setup](notebooks/00-setup.ipynb)
-    - set up the working environment, create an S3 bucket for data upload, explore the test dataset
-    - optional - create a Data Wrangler flow for data transformation and feature ingestion
-    - create a feature group in Feature Store where features are stored
-    - query the data from the feature group
-- [Feature Store ingestion pipeline](notebooks/01-feature-store-ingest-pipeline.ipynb)
-    - provision a SageMaker project with a data pipeline
-    - explore the project resources
-    - test the data pipeline by uploading new data into the monitored S3 bucket
-    - run the data pipeline on demand via Python SDK
-    - query the data from the feature group
-- [Clean up](notebooks/99-clean-up.ipynb)
-    - delete the project and project's resources
-    - delete the feature group
-    - delete project-provisioned S3 buckets and S3 objects
+제공된 노트북은 다음 구현을 안내합니다.
+- [설정](노트북/00-setup.ipynb)
+    - 작업 환경 설정, 데이터 업로드를 위한 S3 버킷 생성, 테스트 데이터 세트 탐색
+    - 선택 사항 - 데이터 변환 및 기능 수집을 위한 Data Wrangler 흐름 생성
+    - 피쳐가 저장되는 피쳐 저장소에 피쳐 그룹 생성
+    - 피쳐 그룹에서 데이터 쿼리
+- [피쳐 저장소 수집 파이프라인](노트북/01-feature-store-ingest-pipeline.ipynb)
+    - 데이터 파이프라인이 있는 SageMaker 프로젝트 프로비저닝
+    - 프로젝트 리소스 탐색
+    - 모니터링되는 S3 버킷에 새 데이터를 업로드하여 데이터 파이프라인 테스트
+    - Python SDK를 통해 요청 시 데이터 파이프라인 실행
+    - 피쳐 그룹에서 데이터 쿼리
+- [정리](노트북/99-clean-up.ipynb)
+    - 프로젝트 및 프로젝트 리소스 삭제
+    - 피쳐 그룹 삭제
+    - 프로젝트 프로비저닝된 S3 버킷 및 S3 객체 삭제
+
 
 # Clean up
 To avoid charges, you must remove all project-provisioned and generated resources from your AWS account. 
