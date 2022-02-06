@@ -8,7 +8,7 @@
 
 
 # 1. 로컬 개발 환경을 만들기 위해서 아래의 CloudFormation 링크를 클릭하세요.
-아래의 원문은 참조사히고, 저희는 SageMaker Classic Notebook 을 **로컬 개발 환경** 으로 사용하겠습니다.
+아래의 원문은 참조 히시고, 저희는 SageMaker Classic Notebook 을 **로컬 개발 환경** 으로 사용하겠습니다.
 ```
 - [원문] Mac, Linux 와 같은 로컬 환경에서 하세요.
 - [원문] 솔루션을 배포하려면 CloudFormation 템플릿을 패키징하고, Amazon S3 버킷에 템플릿을 업로드하고, 배포 명령을 실행할 수 있는 **관리자**(또는 **고급 사용자**) 권한이 있어야 합니다.
@@ -26,24 +26,36 @@
 # 2. 위의 클라우드 포메이션이 완료 된 후에 솔루션 GitHub 리포지토리를 로컬 개발 환경에 복제합니다.
 
 
-솔루션 를 SageMaker Classic Notebook에 복제합니다.
+SageMaker Classic Notebook 의 쥬피터 랩 (혹은 쥬피트) 노트북을 오픈하시고, 터미널을 실행하여 아래를 실행하여 코드 리파지토리를 복사 합니다.
 
 ```sh
 cd SageMaker
 git clone https://github.com/gonsoomoon-ml/amazon-sagemaker-reusable-components-kr
 cd amazon-sagemaker-reusable-components-kr
 ```
+# 3. SageMaker 프로젝트 포트폴리오 배포
+이 솔루션에는 [SageMaker 사용자 지정 프로젝트 템플릿](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html)이 포함되어 있어 Studio, 보다 구체적으로 [SageMaker 기능 저장소](https://aws.amazon.com/sagemaker/feature-store/)로 기능 변환 및 수집 자동화를 위한 것입니다. 이 프로젝트 템플릿은 [AWS 서비스 카탈로그](https://aws.amazon.com/servicecatalog/) 제품(Product)으로 제공되며 **프로젝트** 아래 Studio **SageMaker 리소스** 메뉴에서 사용할 수 있습니다.
+
+Studio를 시작하기 전에 필요한 모든 아티팩트를 프로비저닝하려면 다음 배포 단계를 따라야 합니다.
+
+**위에서 다운로드한 코드 리파지토리에서 아래 두개의 노트북을 셀 단위로 실행하세요.**
+
+1. 1.1 Package-Catalog-Portfolio-Product.ipynb 
+    - 서비스 포트폴리오 카탈로그 및 프러덕트를 준비 및 패키징 합니다.
+2. 2.1 Deploy-Catalog-Portfolio-Product.ipynb
+    - 포트폴리오 및 프러덕트를 배포 합니다.
 
 
-# 3. SageMaker Studio 생성
-- 에빈트 엔진으로 실험을 하실 경우에는 이미 세이지 메이커 스튜디오가 생성이 되어 있을 수 있습니다.
 
-계정에 SageMaker Studio가 생성 및 구성되지 않은 경우 [Studio의 새 인스턴스 생성](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard. HTML). 이미 Studio가 있는 경우 [SageMaker 프로젝트 포트폴리오 배포](#deploy-sagemaker-project-portfolio) 단계에서 계속할 수 있습니다.
+# 4. SageMaker Studio 생성
+- **에빈트 엔진으로 실험을 하실 경우에는 이미 세이지 메이커 스튜디오가 생성이 되어 있을 수 있습니다. 그러면 이번 단계를 스킵 하세요.**
+
+계정에 SageMaker Studio가 생성 및 구성되지 않은 경우 [Studio의 새 인스턴스 생성](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html). 이미 Studio가 있는 경우 [SageMaker 프로젝트 포트폴리오 배포](#deploy-sagemaker-project-portfolio) 단계에서 계속할 수 있습니다.
 1. [Amazon SageMaker 콘솔](https://console.aws.amazon.com/sagemaker/)을 엽니다.
 1. **Amazon SageMaker Studio**를 선택합니다.
-![](img/amazon-sagemaker-studio-create.png)
+![스튜디오생성](img/amazon-sagemaker-studio-create.png)
 1. 구성 대화 상자에서 **표준 설정**, **AWS IAM(Identity and Access Management)**을 선택하고 계정 및 Studio 사용자에 대해 **SageMaker 프로젝트 및 JumpStart**가 활성화되어 있는지 확인합니다.
-![](img/studio-create-configuration.png)
+![설정 확인](img/studio-create-configuration.png)
 
 **권한** 구성에서 **새 역할 만들기**를 선택합니다. Studio IAM 역할에 대한 권한을 검토하고 필요한 경우 수정하고 수락합니다.
 ![](img/studio-iam-role-permissions.png)
@@ -53,15 +65,6 @@ cd amazon-sagemaker-reusable-components-kr
 1. **제출**을 클릭합니다.
 
 
-# 4. SageMaker 프로젝트 포트폴리오 배포
-이 솔루션에는 [SageMaker 사용자 지정 프로젝트 템플릿](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html)이 포함되어 있어 Studio, 보다 구체적으로 [SageMaker 기능 저장소](https://aws.amazon.com/sagemaker/feature-store/)로 기능 변환 및 수집 자동화를 위한 것입니다. 이 프로젝트 템플릿은 [AWS 서비스 카탈로그](https://aws.amazon.com/servicecatalog/) 제품(Product)으로 제공되며 **프로젝트** 아래 Studio **SageMaker 리소스** 메뉴에서 사용할 수 있습니다.
-
-Studio를 시작하기 전에 필요한 모든 아티팩트를 프로비저닝하려면 다음 배포 단계를 따라야 합니다.
-
-1. 1.1 Package-Catalog-Portfolio-Product.ipynb 
-    - 서비스 포트폴리오 카탈로그 및 프러덕트를 준비 및 패키징 합니다.
-2. 2.1 Deploy-Catalog-Portfolio-Product.ipynb
-    - 포트폴리오 및 프러덕트를 배포 합니다.
 
 # 5. 세이지 메이커 프로젝트 생성 및 검증
 - 이 단계는 서비스 카탈로그의 프러덕트가 배포가 되었기에, 세이지 메이커 스튜디오에서 세이지 메이커 프로젝트를 생성하고 실행 하는 단계 입니다.
@@ -168,11 +171,10 @@ git clone https://github.com/gonsoomoon-ml/amazon-sagemaker-reusable-components-
 [Amazon SageMaker 개발자 안내서](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-delete-domain.html)의 자세한 단계별 지침을 참조하십시오.
 
 3. 제공된 세이지 메이커 클랙식 노트북 생성을 위한 CloudFormation 패키지 및 배포 스택을 사용한 경우 삭제합니다.
-- Cloud Formation 콘솔에 가셔서 삭제 하셔도 됩니다.
+- 클라우드 포메이션 컨솔에 가셔서 삭제 하셔도 됩니다.
 ```sh
 aws cloudformation delete-stack --stack-name <stack name>
 ```
-
 
 
 

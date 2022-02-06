@@ -2,7 +2,7 @@
 원제목: SageMaker 프로젝트와 함께 Amazon SageMaker 재사용 가능한 구성 요소
 
 ## [역자 알림] 
-- 원문 코드 리파지톨인 [Amazon SageMaker reusable components with SageMaker Projects](https://github.com/aws-samples/amazon-sagemaker-reusable-components) 의 컨텐츠를 재사용하였으면, 실습의 편리함을 위해 재구성을 하였고, 원문의 에러를 수정한 버젼 입니다.
+- 원문 코드 리파지토리 [Amazon SageMaker reusable components with SageMaker Projects](https://github.com/aws-samples/amazon-sagemaker-reusable-components) 의 컨텐츠를 재사용하였으며, 실습의 편리함을 위해 재구성을 하였고, 원문의 에러를 수정한 버젼 입니다.
 
 
 - 바로 실습을 가실 분은 아래를 클릭 하세요.
@@ -18,7 +18,7 @@
 상세한 사항은 여기 블로그를 [Enhance your machine learning development by using a modular architecture with Amazon SageMaker projects](https://aws.amazon.com/blogs/machine-learning/enhance-your-machine-learning-development-by-using-a-modular-architecture-with-amazon-sagemaker-projects/) 참조 하세요.
 
 # 2. 솔루션 개요
-여러 개발 도메인에 걸쳐 있는 ML 워크플로의 예로 제안된 솔루션은 [Amazon SageMaker Feature Store](https://aws.amazon.com//sagemaker/feature-store/)로 데이터 변환, 기능 추출 및 수집을 위한 자동화된 파이프라인의 사용 사례를 구현합니다. ).
+여러 개발 도메인에 걸쳐 있는 ML 워크플로의 예로 제안된 솔루션은 [Amazon SageMaker Feature Store](https://aws.amazon.com//sagemaker/feature-store/)로 데이터 변환, 기능 추출 및 수집을 위한 자동화된 파이프라인의 사용 사례를 구현합니다. 
 
 높은 수준에서 워크플로는 다음 단계로 구성됩니다.
 
