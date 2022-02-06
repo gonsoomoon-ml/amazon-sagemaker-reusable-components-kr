@@ -164,32 +164,14 @@ git clone https://github.com/gonsoomoon-ml/amazon-sagemaker-reusable-components-
 # 6. 리소스 제거
 요금이 부과되지 않도록 하려면 AWS 계정에서 프로젝트 프로비저닝 및 생성된 리소스를 모두 제거해야 합니다.
 1. 제공된 [정리노트](notebooks/99-clean-up.ipynb)의 모든 단계를 실행합니다.
-2. 역할에서 관리형 정책을 분리합니다.
-```sh
-aws iam detach-role-policy \
-    --role-name AmazonSageMakerServiceCatalogProductsLaunchRole \
-    --policy-arn $SM_SC_FS_INGESTION_POLICY_ARN
-
-aws iam detach-role-policy \
-    --role-name  $SM_EXECUTION_ROLE_NAME \
-    --policy-arn $SM_EXECUTION_ROLE_POLICY_ARN
-```
-3. SageMaker 제품 포트폴리오 스택을 삭제합니다.
-```sh
-aws cloudformation delete-stack --stack-name $SC_PORTFOLIO_STACK_NAME
-```
-4. 제공된 CloudFormation 패키지 및 배포 스택을 사용한 경우 삭제합니다.
-```sh
-aws cloudformation delete-stack --stack-name amazon-sagemaker-reusable-components-package-cfn
-```
-
-5. SageMaker Studio 도메인을 삭제합니다.
+2. SageMaker Studio 도메인을 삭제합니다.
 [Amazon SageMaker 개발자 안내서](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-delete-domain.html)의 자세한 단계별 지침을 참조하십시오.
 
-6. 제공된 세이지 메이커 클랙식 노트북 생성을 위한 CloudFormation 패키지 및 배포 스택을 사용한 경우 삭제합니다.
+3. 제공된 세이지 메이커 클랙식 노트북 생성을 위한 CloudFormation 패키지 및 배포 스택을 사용한 경우 삭제합니다.
 ```sh
 aws cloudformation delete-stack --stack-name <stack name>
 ```
+
 
 
 
