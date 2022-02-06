@@ -10,6 +10,7 @@
 # 1. 로컬 개발 환경을 만들기 위해서 아래의 CloudFormation 링크를 클릭하세요.
 아래의 원문은 참조사히고, 저희는 SageMaker Classic Notebook 을 **로컬 개발 환경** 으로 사용하겠습니다.
 ```
+- [원문] Mac, Linux 와 같은 로컬 환경에서 하세요.
 - [원문] 솔루션을 배포하려면 CloudFormation 템플릿을 패키징하고, Amazon S3 버킷에 템플릿을 업로드하고, 배포 명령을 실행할 수 있는 **관리자**(또는 **고급 사용자**) 권한이 있어야 합니다.
 
 - [원문] [AWS CLI](https://aws.amazon.com/cli/)도 있어야 합니다. 없으면 [AWS CLI 설치, 업데이트 및 제거](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)를 참조하십시오.
@@ -112,7 +113,7 @@ Launcher 방문 페이지를 제시했습니다.
 
 터미널에서 다음 명령을 실행합니다.
 ```sh
-git clone https://github.com/aws-samples/amazon-sagemaker-reusable-components-kr.git
+git clone https://github.com/gonsoomoon-ml/amazon-sagemaker-reusable-components-kr
 ```
 
 코드 저장소가 다운로드되어 Studio의 홈 디렉토리에 저장됩니다.
