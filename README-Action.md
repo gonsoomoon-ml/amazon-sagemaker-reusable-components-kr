@@ -1,4 +1,5 @@
-# [Action] SageMaker 프로젝트와 함께 Amazon SageMaker 재사용 가능한 구성 요소
+# [Action] SageMaker Pipeline Project 를 위한 사용자 정의 프로젝트 템플릿 생성 및 배포
+
 이 솔루션은 [AWS Service Catalog](https://aws.amazon.com/servicecatalog/), [AWS CloudFormation](https://aws.amazon.com/cloudformation/), [SageMaker Projects](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-whatis.html) 및 [SageMaker Pipelines](https://aws.amazon.com/sagemaker/pipelines/) 을 사용하여
 세이지 메이커 환경에 재사용 가능하고 독립적인 ML 구성 요소를 제공하는 방법을 보여줍니다.
 
