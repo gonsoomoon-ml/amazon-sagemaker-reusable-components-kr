@@ -74,7 +74,7 @@ IAM 설정에는 다음 역할이 포함됩니다.
 # 7. 데이터 세트
 이 솔루션에서는 잘 알려진 [Abalone dataset](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression.html#abalone)을 사용합니다. 데이터 세트에는 4177개의 데이터 행과 8개의 기능이 있습니다.
 
-Dua, D. 및 Graff, C. (2019). UCI 기계 학습 저장소 [http://archive.ics.uci.edu/ml]. 캘리포니아 어바인: 캘리포니아 대학교 정보 및 컴퓨터 과학 학교.
+Dua, D. 및 Graff, C. (2019). UCI 기계 학습 저장소. 캘리포니아 어바인: 캘리포니아 대학교 정보 및 컴퓨터 과학 학교.
 
 다음에서 데이터세트를 다운로드할 수 있습니다. [UCI website](http://archive.ics.uci.edu/ml/datasets/Abalone):
 ```

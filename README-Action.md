@@ -50,12 +50,12 @@ Studio를 시작하기 전에 필요한 모든 아티팩트를 프로비저닝�
 # 4. SageMaker Studio 생성
 - **에빈트 엔진으로 실험을 하실 경우에는 이미 세이지 메이커 스튜디오가 생성이 되어 있을 수 있습니다. 그러면 이번 단계를 스킵 하세요.**
 
-계정에 SageMaker Studio가 생성 및 구성되지 않은 경우 [Studio의 새 인스턴스 생성](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html). 이미 Studio가 있는 경우 [SageMaker 프로젝트 포트폴리오 배포](#deploy-sagemaker-project-portfolio) 단계에서 계속할 수 있습니다.
+계정에 SageMaker Studio가 생성 및 구성되지 않은 경우 [Studio의 새 인스턴스 생성](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html). 이미 Studio가 있는 경우 SageMaker 프로젝트 포트폴리오 배포 단계에서 계속할 수 있습니다.
 1. [Amazon SageMaker 콘솔](https://console.aws.amazon.com/sagemaker/)을 엽니다.
 1. **Amazon SageMaker Studio**를 선택합니다.
 ![스튜디오생성](img/amazon-sagemaker-studio-create.png)
 1. 구성 대화 상자에서 **표준 설정**, **AWS IAM(Identity and Access Management)**을 선택하고 계정 및 Studio 사용자에 대해 **SageMaker 프로젝트 및 JumpStart**가 활성화되어 있는지 확인합니다.
-![설정 확인](img/studio-create-configuration.png)
+
 
 **권한** 구성에서 **새 역할 만들기**를 선택합니다. Studio IAM 역할에 대한 권한을 검토하고 필요한 경우 수정하고 수락합니다.
 ![](img/studio-iam-role-permissions.png)
@@ -91,7 +91,7 @@ Studio를 시작하려면 [SageMaker Dashboard](https://console.aws.amazon.com/s
 
 ![](img/studio-add-user.png)
 
-새 스튜디오 사용자를 추가하려면 사용자 추가 패널의 [SageMaker Studio 생성](#create-sagemaker-studio) 단계에서 생성된 해당 SageMaker 실행 역할을 입력하고 제출을 클릭합니다.
+새 스튜디오 사용자를 추가하려면 사용자 추가 패널의 SageMaker Studio 생성 단계에서 생성된 해당 SageMaker 실행 역할을 입력하고 제출을 클릭합니다.
 
 ![](img/studio-add-user-panel.png)
 
@@ -158,7 +158,7 @@ git clone https://github.com/gonsoomoon-ml/amazon-sagemaker-reusable-components-
 7. 피쳐 스토어에서 데이터 확인
 
 
-- [정리](노트북/99-clean-up.ipynb)
+- [정리](notebooks/99-clean-up.ipynb)
     - 프로젝트 및 프로젝트 리소스 삭제
     - 피쳐 그룹 삭제
     - 프로젝트 프로비저닝된 S3 버킷 및 S3 객체 삭제
