@@ -130,7 +130,7 @@ git clone https://github.com/gonsoomoon-ml/amazon-sagemaker-reusable-components-
 제공된 [설정](notebooks/00-setup.ipynb) 및 [feature-store-ingest-pipeline](notebooks/01-feature-store-ingest-pipeline.ipynb) 노트북을 사용하여 모든 솔루션 단계를 실행하십시오.
 
 제공된 노트북은 다음 구현을 안내합니다.
-- [설정](notebooks/00-setup.ipynb)
+- [설정, 00-setup.ipynb](notebooks/00-setup.ipynb)
 1. 아키텍쳐 개요
 2. 기본 변수 설정
     - 데이터 업로드를 위한 Amazon S3 버킷 가져오기
@@ -143,7 +143,7 @@ git clone https://github.com/gonsoomoon-ml/amazon-sagemaker-reusable-components-
     - 피쳐가 저장되는 피쳐 저장소에 새 피쳐 그룹 생성
 
 
-- [피쳐 저장소 수집 파이프라인](notebooks/01-feature-store-ingest-pipeline.ipynb)
+- [피쳐 저장소 수집 파이프라인, 01-feature-store-ingest-pipeline.ipynb](notebooks/01-feature-store-ingest-pipeline.ipynb)
 1. 아키텍처 개요
 2. 전제 조건
 3. 기본 변수 로딩
@@ -166,7 +166,7 @@ git clone https://github.com/gonsoomoon-ml/amazon-sagemaker-reusable-components-
 
 # 6. 리소스 제거
 요금이 부과되지 않도록 하려면 AWS 계정에서 프로젝트 프로비저닝 및 생성된 리소스를 모두 제거해야 합니다.
-1. 제공된 [정리노트](notebooks/99-clean-up.ipynb)의 모든 단계를 실행합니다.
+1. 제공된 [정리노트, 99-clean-up.ipynb](notebooks/99-clean-up.ipynb)의 모든 단계를 실행합니다.
 2. SageMaker Studio 도메인을 삭제합니다.
 [Amazon SageMaker 개발자 안내서](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-delete-domain.html)의 자세한 단계별 지침을 참조하십시오.
 
