@@ -36,7 +36,7 @@ Outputs:
   
   AmazonSageMakerExecutionRoleName:
     Description: Name of the Amazon SageMaker execution role
-    Value: !Select [2, !Split ['/', !Ref SCPortfolioPrincipalRoleArn ] ] 
+    Value: !Select [1, !Split ['/', !Ref SCPortfolioPrincipalRoleArn ] ] 
     
 Parameters:
   SCPortfolioPrincipalRoleArn:
